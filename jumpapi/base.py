@@ -3,11 +3,7 @@ from httpsig.requests_auth import HTTPSignatureAuth
 
 from jumpserver import settings
 #172.27.232.250
-# new_KEY_ID = '5a7ffec1-e19e-4256-a316-5a370531360c'
-# new_SECRET = 'Ap7LxpUWQiTmta9ODeowIWBeqMZIUPtiWv3D'
-# Jumpserver_host = 'http://172.27.232.250'
-# signature_headers = ['(request-target)', 'accept', 'date', 'host']
-# algorithm = 'hmac-sha256'
+
 class JumpserverCli:
     '''
     跳板机
