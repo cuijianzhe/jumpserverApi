@@ -158,7 +158,10 @@ class JumpserverApi(JumpserverCli):
                 'id': res_data['id'],
                 'name': res_data['name'],
                 'username': res_data['username'],
-                'asset': res_data['asset']['id']
+                'asset_id': res_data['asset']['id'],
+                'asset_name': res_data['asset']['name'],
+                'asset_address': res_data['asset']['address'],
+                'date_created': res_data['date_created']
             }
         else:
             data = {}
@@ -167,8 +170,18 @@ class JumpserverApi(JumpserverCli):
     def get_perms_asset_permissions(self, data):
         url = '/api/v1/perms/asset-permissions/'
         res_data = self._get(url, data)
-        # print(res_data)
-        return res_data
+        print(res_data)
+        if res_data:
+            data = {
+                'name': res_data[0]['name'],
+                'id': res_data[0]['id'],
+                'accounts': res_data[0]['accounts'],
+                'date_start': res_data[0]['date_start'],
+                'date_expired': res_data[0]['date_expired']
+            }
+        else:
+            data = {}
+        return data
 
     def creat_perms_asset_permissions(self, data):
         url = '/api/v1/perms/asset-permissions/'
@@ -197,6 +210,7 @@ class JumpserverApi(JumpserverCli):
         url = '/perms/asset-permissions-users-relations/'
         res_data = self._get(url, data)
         return res_data
+
 
 
 
